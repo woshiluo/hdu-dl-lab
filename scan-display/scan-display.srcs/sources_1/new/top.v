@@ -38,7 +38,7 @@ module top(
 	assign edd_selc = current;
 	initial current = 3'b111;
 	initial count = 0;
-	assign r_current = ( count == 3'b111 )? in_dig: {sw, current};
+	assign r_current = ( current == 3'b111 )? in_dig: {sw, current};
 	always @(posedge clk) begin 
 		current <= ( count == 7'd127 )? nxt_current: current;
 		count <= ( count == 7'd127 )? 0: ( count + 1 );
